@@ -29,6 +29,7 @@ for n in range(len(train_df)):
     print("Job done, getting results")
     train_df['fasta_ss_search_result'][n] = fas.get_plain_text_result(jobID)
     # Save results
+    print("Sequence nr. " + n + " saved...")
     train_df.to_csv("./data/train_updated_uniprot_ss_search.csv")
 
 
