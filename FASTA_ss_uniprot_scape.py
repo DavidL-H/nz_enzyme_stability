@@ -19,7 +19,7 @@ train_df.head()
 train_df['fasta_ss_search_result'] = pd.NA
 
 # Test
-for n in range(len(train_df)):
+for n in range(28944, len(train_df)):
     test_seq = train_df["protein_sequence"][n]
     jobID = fas.post_fasta_ss_search(fas.aaseq_to_request_string(test_seq, "test_title"))
     # Wait til job is done, before getting results
@@ -30,7 +30,7 @@ for n in range(len(train_df)):
     train_df['fasta_ss_search_result'][n] = fas.get_plain_text_result(jobID)
     # Save results
     print("Sequence nr. " + str(n) + " saved...")
-    train_df.to_csv("./data/train_updated_uniprot_ss_search.csv")
+    train_df.to_csv("./data/train_updated_uniprot_ss_search_v9.csv")
 
 
 
