@@ -12,9 +12,13 @@ https://www.ebi.ac.uk/Tools/common/tools/help/#!/Submit32job/post_run
 
 David Lennox-Hvenekilde
 221001
-'''
 
+V2
+Added function for AlphaFold2 .pdb retreival
+
+'''
 import requests
+
 
 # Request string needed for FASTA sequence similarity query job
 # Not the most beutiful API wrapper, but does the job
@@ -31,6 +35,7 @@ def aaseq_to_request_string(sequence, title, email = "davidlh3@gmail.com"):
 
     return request_string
 
+
 # POST a sequence similarity search
 def post_fasta_ss_search(request_string):
     URL = u'https://www.ebi.ac.uk/Tools/services/rest/fasta/run'
@@ -42,6 +47,7 @@ def post_fasta_ss_search(request_string):
     # Returns only jobID
     return str(response.content)[2:-1]
 
+
 # Check status
 def status_fasta_ss_search(jobID):
     '''
@@ -50,6 +56,7 @@ def status_fasta_ss_search(jobID):
     URL = u'https://www.ebi.ac.uk/Tools/services/rest/fasta/status/'
     jobID_query = URL + jobID
     return requests.get(jobID_query).content == b'FINISHED'
+
 
 # Return results
 # Run this when the "status_fasta_ss_search" give True output
@@ -60,3 +67,20 @@ def get_plain_text_result(jobID):
     results_split = results_text.split("\\n")
     # Top hit is line 21
     return results_split[21]
+
+
+# Get the Alphafold2 structure of a protein based on uniprot ID
+def get_AF_pdb_from_uniprot_id(uniprotID, path):
+    '''
+    Download Alphafold2 structure of a protein based on uniprot ID to given path
+    Adapted from: # https://www.blopig.com/blog/2022/08/retrieving-alphafold-models-from-alphafolddb/
+    '''
+    database_version = "v2"
+    alphafold_ID = 'AF-'+uniprotID+'-F1'
+    database_version = "v2"
+    model_url = f'https://alphafold.ebi.ac.uk/files/{alphafold_ID}-model_{database_version}.pdb'
+    response = requests.get(model_url)
+    if response == '<Response [200]>':
+        open(path+alphafold_ID+".pdb", "wb").write(response.content)
+    return response
+
