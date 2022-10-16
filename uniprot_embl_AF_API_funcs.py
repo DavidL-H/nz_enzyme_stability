@@ -80,7 +80,7 @@ def get_AF_pdb_from_uniprot_id(uniprotID, path):
     database_version = "v2"
     model_url = f'https://alphafold.ebi.ac.uk/files/{alphafold_ID}-model_{database_version}.pdb'
     response = requests.get(model_url)
-    if response == '<Response [200]>':
+    if str(response) == '<Response [200]>':
         open(path+alphafold_ID+".pdb", "wb").write(response.content)
     return response
 

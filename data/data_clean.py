@@ -27,6 +27,14 @@ for file in data_files:
         train_dat_append = train_dat_append[pd.notna(train_dat_append['fasta_ss_search_result'])]
         train_dat_ss = pd.concat([train_dat_ss, train_dat_append], ignore_index = True, sort = False)
 
+
+train_dat_ss.head
+for col in train_dat_ss.columns:
+    print(col)
+train_dat_ss = train_dat_ss.drop(["Unnamed: 0",], axis = 1)
+train_dat_ss = train_dat_ss.drop(["Unnamed: 0.1"], axis = 1)
+train_dat_ss = train_dat_ss.drop(["Unnamed: 0.1.1"], axis = 1)
+
 # We not have a concatenated dataframe with all the sequene search hits
 # Let se if we are missing any row in our new ss dataset, compared to the original
 train_dat_original = pd.read_csv("./data/train_updated.csv")
@@ -40,4 +48,8 @@ missing_ids = [id for id in train_dat_original_ids if id not in train_dat_ss_ids
 
 # Lets make a new DF with only the rows missing these values, this will be saved and resubmitted for ss search.
 train_dat_original_ss_missing = train_dat_original.loc[train_dat_original["seq_id"].isin(missing_ids)]
-train_dat_original_ss_missing.to_csv('./data/train_updated_uniprot_ss_search_missing.csv')
+# only if any is missing
+if len(train_dat_original_ss_missing) > 0:
+    train_dat_original_ss_missing.to_csv('./data/train_updated_uniprot_ss_search_missing.csv')
+else:
+    train_dat_ss.to_csv('./data/train_updated_uniprot_ss_search_final.csv')

@@ -7,7 +7,7 @@ sequences in the test data set, to use for gathering AlphaFold structures down t
 David Lennox-Hvenekilde
 221001
 """
-import FASTA_ss_search as fas
+import uniprot_embl_AF_API_funcs as fas
 import time
 import pandas as pd
 

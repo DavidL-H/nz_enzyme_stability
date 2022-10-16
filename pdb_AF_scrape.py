@@ -6,7 +6,6 @@ David
 import pandas as pd
 from uniprot_embl_AF_API_funcs import get_AF_pdb_from_uniprot_id
 
-root = "./data/alphafold"
 # First lets clean the ss fasta uniprot query hits
 train_dat = pd.read_csv("./data/train_updated_uniprot_ss_search_final.csv")
 train_dat.head
@@ -26,9 +25,12 @@ unique_ids = train_dat['uniprot_id'].unique()
 
 AlphaFold_status = {}
 for uniprot_id in unique_ids:
-    response = get_AF_pdb_from_uniprot_id(uniprot_id,'./data/alphafold/')¨
-    if response == '<Response [404]>':
+    uniprot_id = str(uniprot_id)
+    response = get_AF_pdb_from_uniprot_id(uniprot_id,'./data/alphafold/')
+    print(uniprot_id)
+    print(response)
+    if str(response) == '<Response [404]>':
         AlphaFold_status[uniprot_id] = 0
-    elif response == '<Response [200]>':
+    elif str(response) == '<Response [200]>':
         AlphaFold_status[uniprot_id] = 1
 
