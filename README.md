@@ -4,8 +4,7 @@ https://www.kaggle.com/competitions/novozymes-enzyme-stability-prediction
 
 The training data is a collection of publically available protein sequences and associated Tm (temperature stability). There represent a wide array of proteins
 which vary widely in structure, function, sequence etc. However the prediction data is just ONE protein with different point mutations and deletion.
-The training data seems to not be really generally applicable to the test data. To get good predictions for the test data, the model will have to be significantly over-fitted
-for the specific enzyme in question (nz's protease).
+The training data seems to not be really generally applicable to the test data. To get good predictions for the test data, the model will have to be significantly over-fitted for the specific enzyme in question (nz's protease).
 
 **General strategy outline - Data gathering, and wrangling:**  
 Step 1
@@ -25,7 +24,7 @@ Step 2
 **General strategy outline - Modelling:**  
  Step 1  
   - Try out CNNs on a combination of 2d images and graphs
-  - Compare performance to a modelling approach using e.g., Fold-X or Rosetta?
+  - Compare performance to a Tm modelling approach using e.g., Fold-X or Rosetta?
  
 *Resources used/references:*    
 Inspiration for how to use protein contact maps/neworks - https://github.com/flatironinstitute/DeepFRI![image](https://user-images.githubusercontent.com/53938612/201655467-2462ab36-ed56-4c17-8543-f4f0749edbe2.png)
