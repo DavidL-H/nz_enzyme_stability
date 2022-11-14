@@ -25,4 +25,11 @@ Step 2
 **General strategy outline - Modelling:**  
  Step 1  
   - Try out CNNs on a combination of 2d images and graphs
+  - Compare performance to a modelling approach using e.g., Fold-X or Rosetta?
  
+*Resources used/references:*    
+Inspiration for how to use protein contact maps/neworks - https://github.com/flatironinstitute/DeepFRI![image](https://user-images.githubusercontent.com/53938612/201655467-2462ab36-ed56-4c17-8543-f4f0749edbe2.png)
+
+*Other sources of inspiration:*  
+PyTorch for biological sequence analysis (DNA): https://towardsdatascience.com/modeling-dna-sequences-with-pytorch-de28b0a05036![image](https://user-images.githubusercontent.com/53938612/201656084-484f62ad-9677-40f4-8334-25a647734d83.png)
+
