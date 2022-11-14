@@ -22,7 +22,7 @@ Step 2
  - Transform 3d structures into 2d images: contact maps
  - Transform 3d structures into graphs: residue interaction networks
 
-**General strategy outline - Modelling: **  
+**General strategy outline - Modelling:**  
  Step 1  
   - Try out CNNs on a combination of 2d images and graphs
  
