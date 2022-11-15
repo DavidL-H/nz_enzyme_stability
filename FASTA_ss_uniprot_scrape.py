@@ -19,7 +19,7 @@ train_df.head()
 train_df['fasta_ss_search_result'] = pd.NA
 
 # Test
-for n in range(28944, len(train_df)):
+for n in range(len(train_df)):
     test_seq = train_df["protein_sequence"][n]
     jobID = fas.post_fasta_ss_search(fas.aaseq_to_request_string(test_seq, "test_title"))
     # Wait til job is done, before getting results
@@ -38,7 +38,7 @@ for n in range(28944, len(train_df)):
 Second run of the API Fasta BLAST search using the missing values data frame,
 The output of "./data/data_clean.py"
 '''
-
+# OPTIONAL #
 # Rerun the search with the missing values dataframe
 train_df_missing = pd.read_csv("./data/train_updated_uniprot_ss_search_missing.csv")
 train_df_missing.head()
