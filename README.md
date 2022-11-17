@@ -15,8 +15,8 @@ Step 1
 DONE
 
 Step 2  
- - ID the wt enzyme/protein in each group
- - Find single mutations deletion in these groups
+ - ID the 'wt' enzyme/protein in each group
+ - Find single mutations deletion, insertions in these groups
  - Make derivatives of the .pdb file of the WT, using pymol mutagenesis wizard
  - Transform 3d structures into 2d images: contact maps
  - Transform 3d structures into graphs: residue interaction networks
@@ -24,11 +24,13 @@ Step 2
 **General strategy outline - Modelling:**  
  Step 1  
   - Try out CNNs on a combination of 2d images and graphs
+  - Use 2-3 groups of enzymes as validation sets, not randomly chosen
+  - Maybe need different models for residue change and residue insertion/deletion
   - Compare performance to a Tm modelling approach using e.g., Fold-X or Rosetta?
  
 *Resources used/references:*    
-Inspiration for how to use protein contact maps/neworks - https://github.com/flatironinstitute/DeepFRI![image](https://user-images.githubusercontent.com/53938612/201655467-2462ab36-ed56-4c17-8543-f4f0749edbe2.png)
+Inspiration for how to use protein contact maps/neworks - https://github.com/flatironinstitute/DeepFRI
 
 *Other sources of inspiration:*  
-PyTorch for biological sequence analysis (DNA): https://towardsdatascience.com/modeling-dna-sequences-with-pytorch-de28b0a05036![image](https://user-images.githubusercontent.com/53938612/201656084-484f62ad-9677-40f4-8334-25a647734d83.png)
+PyTorch for biological sequence analysis (DNA): https://towardsdatascience.com/modeling-dna-sequences-with-pytorch-de28b0a05036
 
