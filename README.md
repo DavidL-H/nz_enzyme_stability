@@ -15,8 +15,8 @@ Step 1
 DONE
 
 Step 2  
- - ID the wt enzyme/protein in each group
- - Find single mutations deletion in these groups
+ - ID the 'wt' enzyme/protein in each group
+ - Find single mutations deletion, insertions in these groups
  - Make derivatives of the .pdb file of the WT, using pymol mutagenesis wizard
  - Transform 3d structures into 2d images: contact maps
  - Transform 3d structures into graphs: residue interaction networks
@@ -24,6 +24,7 @@ Step 2
 **General strategy outline - Modelling:**  
  Step 1  
   - Try out CNNs on a combination of 2d images and graphs
+  - Maybe need different models for residue change and residue insertion/deletion
   - Compare performance to a Tm modelling approach using e.g., Fold-X or Rosetta?
  
 *Resources used/references:*    
