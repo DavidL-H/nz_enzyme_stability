@@ -24,6 +24,7 @@ Step 2
 **General strategy outline - Modelling:**  
  Step 1  
   - Try out CNNs on a combination of 2d images and graphs
+  - Use 2-3 groups of enzymes as validation sets, not randomly chosen
   - Maybe need different models for residue change and residue insertion/deletion
   - Compare performance to a Tm modelling approach using e.g., Fold-X or Rosetta?
  
