@@ -33,21 +33,16 @@ for uniprot_id in unique_ids:
         AlphaFold_status[uniprot_id] = 0
     elif str(response) == '<Response [200]>':
         AlphaFold_status[uniprot_id] = 1
-# All the structures that could be downloaded are downloaded, now lets add the status to the df
 
+# All the structures that could be downloaded are downloaded, now lets add the status to the df
 # Yeah, I know this shouldn't be done with a loop but I'm new to Pandas. Gimme a break.
 train_dat['af_pdb_status'] = pd.NA
-
-train_dat.loc[train_dat['uniprot_id'] == 'P61989','af_pdb_status'] = 1 
-
-
-
-train_dat.loc[]
-
 for key in AlphaFold_status:
     print(key)
     train_dat.loc[train_dat['uniprot_id'] == key,'af_pdb_status'] = AlphaFold_status[key]
 
+train_dat.head
+with_pdb = 1-len(train_dat[train_dat['af_pdb_status'] == 0])/len(train_dat)
+print(str(round(with_pdb*100,3))+"% of entries have an associated AlphaFold .pdb structure")
 
-
-AlphaFold_status
+train_dat.to_csv('./data/train_updated_uniprot_ss_search_pdb.csv')
